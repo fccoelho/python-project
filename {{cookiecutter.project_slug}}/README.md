@@ -40,7 +40,7 @@
 
 ## Features
 
-* TODO
+* replaced Black, Isort and Flake8 with [Ruff](https://docs.astral.sh/ruff/)
 
 ## Credits
 
