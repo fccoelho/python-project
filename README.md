@@ -20,8 +20,7 @@ This tool will create Python project with the following features:
 * Testing with [Pytest] (unittest is still supported out of the box)
 * Code coverage report and endorsed by [Codecov]
 * [Tox]: Test your code against environment matrix, lint and artifact check.
-* Format with [Black] and [Isort]
-* Lint code with [Flake8] and [Flake8-docstrings]
+* Format and lint code with [Ruff]
 * [Pre-commit hooks]: Formatting/linting anytime when commit/run local tox/CI
 * [Mkdocstrings]: Auto API doc generation and docstring template (vscode and its extension [autodocStrings] is required)
 * Command line interface using [Python Fire] (optional)
@@ -59,10 +58,8 @@ This repo is forked from [audreyr/cookiecutter-pypackage], and borrowed some ide
 [pytest]: https://pytest.org
 [codecov]: https://codecov.io
 [tox]: https://tox.readthedocs.io
-[black]: https://github.com/psf/black
+[Ruff]: https://github.com/astral-sh/ruff
 [isort]: https://github.com/PyCQA/isort
-[flake8]: https://flake8.pycqa.org
-[flake8-docstrings]: https://pypi.org/project/flake8-docstrings/
 [mkdocstrings]: https://mkdocstrings.github.io/
 [Python Fire]: https://github.com/google/python-fire
 [github actions]: https://github.com/features/actions

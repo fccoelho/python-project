@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-from hooks.aioproc import aioprocess, async_run
+import subprocess
 import colorama
 from colorama import Fore, Style
 
@@ -15,12 +15,11 @@ def remove_file(filepath):
         pass
 
 
-@async_run
-async def execute(*args, cwd=None):
+
+def execute(*args, cwd=None):
     cur_dir = os.getcwd()
 
-    proc = await aioprocess(*args, cwd=cwd)
-    await proc.wait()
+    subprocess.call(args)  # , cwd=cur_dir)
 
 
 def init_git():
@@ -32,22 +31,22 @@ def init_git():
             "--system",
             "init.defaultBranch",
             "main",
-            cwd=PROJECT_DIRECTORY,
+            # cwd=PROJECT_DIRECTORY,
         )
-        execute("git", "init", cwd=PROJECT_DIRECTORY)
+        execute("git", "init")  # , cwd=PROJECT_DIRECTORY)
         execute(
             "git",
             "config",
             "user.name",
             "{{ cookiecutter.full_name }}",
-            cwd=PROJECT_DIRECTORY,
+            # cwd=PROJECT_DIRECTORY,
         )
         execute(
             "git",
             "config",
             "user.email",
             "{{ cookiecutter.email }}",
-            cwd=PROJECT_DIRECTORY,
+            # cwd=PROJECT_DIRECTORY,
         )
 
 
@@ -56,7 +55,7 @@ def init_dev():
     print(Style.RESET_ALL, Style.DIM)
     try:
         execute(sys.executable, "-m", "pip", "install", "pre-commit")
-        execute("pre-commit", "install", cwd="{{ cookiecutter.project_slug }}")
+        execute("pre-commit", "install")  # , cwd="{{ cookiecutter.project_slug }}")
         print(Style.NORMAL, Fore.GREEN, "pre-commit hooks was successfully installed")
         print(Style.RESET_ALL)
     except Exception as e:
@@ -72,7 +71,9 @@ def init_dev():
 
     try:
         execute(sys.executable, "-m", "pip", "install", "poetry")
-        print(Style.NORMAL, Fore.GREEN, "poetry installed successfully", Style.RESET_ALL)
+        print(
+            Style.NORMAL, Fore.GREEN, "poetry installed successfully", Style.RESET_ALL
+        )
     except Exception as e:
         print(e)
         print(
@@ -85,7 +86,9 @@ def init_dev():
     try:
         print(Style.NORMAL, Fore.BLUE, "install all dev dependency packages...")
         print(Style.RESET_ALL, Style.DIM)
-        execute("poetry", "install", "-E", "dev", "-E", "doc", "-E", "test", cwd=PROJECT_DIRECTORY)
+        execute(
+            "poetry", "install", "-E", "dev", "-E", "doc", "-E", "test"
+        )  # , cwd=PROJECT_DIRECTORY)
         print(
             Style.NORMAL,
             Fore.GREEN,
@@ -100,7 +103,6 @@ def init_dev():
             "failed to install dev dependency packages, you may need re-run the task by yourself: poetry install -E dev -E test -E doc",
             Style.RESET_ALL,
         )
-
 
 
 if __name__ == "__main__":
