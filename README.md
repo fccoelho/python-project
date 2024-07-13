@@ -1,4 +1,4 @@
-# Python Project Wizard
+# Clean Python Project Template
 
 A tool for creating skeleton python project, built with popular develop tools and
 conform to the best practice.
@@ -33,24 +33,22 @@ This tool will create Python project with the following features:
 * Create repo and push initial commits by repo.sh script
 
 ## Quickstart
+This is a cookiecutter template. so if you don' have cookiecutter installed, please installed with `pip` or your favorite package manager.
 
-Install ppw if you haven't install it yet:
-
-```
-  pip install -U ppw
-```
-
-Generate a Python package project by simple run:
+Just use Cookiecutter to start your project. Type on the terminal:
 
 ```
-  ppw
+cookiecutter https://github.com/fccoelho/python-project
 ```
+
+then follow the instructions on the screen.
+
 
 Then follow the **[Tutorial]** to finish configurations.
 
 # Credits
 
-This repo is forked from [audreyr/cookiecutter-pypackage], and borrowed some ideas from [briggySmalls]
+This repo is forked from [zillionare/python-project-wizard](https://github.com/zillionare/python-project-wizard), and includes  the following tools:
 
 
 [poetry]: https://python-poetry.org/
