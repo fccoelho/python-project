@@ -8,42 +8,13 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 
 ## Step 1: Install Python Project Wizard (ppw)
 
-We'll need `ppw` to generate a skeleton project. Following the instructions to install `ppw` on to your machine. 
+We'll need `coockiecutter` to generate a skeleton project. The you just run it with the python-project template, and follow the instructions on the screen.
 
 ``` bash
-pip install ppw
+pip install cookiecutter
+coockiecutter https://github.com/fccoelho/python-project
 ```
-
-If virtual environment is used during your developement, install `ppw` as global.
-## Step 2: Build a virtual environment for your development
-It's best practice that always developing your project in dedicated python virtual environment. So let's start from creating a virtual environment now:
-
-You may choose either annaconda or virtualenv， annaconda (actually miniconda) is preferred though.
-
-```
-conda create -n mypackage python=3.8
-conda activate mypackage
-conda install -c conda-forge tox-conda
-```
-
-Choose python version on your own decision. Be noticed that we're now at a virtual env called `mypackage`
-## Step 3: Generate Your Package
-
-!!!Important
-    Make sure run the following command under `mypackage` virtual env.
-
-Now it's time to generate your Python package.
-
-Run the following command and feed with answers:
-
-```bash
-  ppw
-```
-
-Finally a new folder will be created under current folder, the name is the answer you
-provided to `project_slug`.
-
-At last step, it'll ask you `ppw` should performe initialization for you. If the answer is 'yes', then `ppw` will:
+When it finishes, you'll end up with a new folder named after the project_slug you provided.
 
 1. install pre-commit hooks
 2. install poetry
@@ -164,7 +135,7 @@ This will give you a test report and a lint report. You should see no errors exc
     # git commit -m "Initial commit by ppw"
     # git branch -M main
 
-    # Uncomment the following to config github secret used by github workflow. 
+    # Uncomment the following to config github secret used by github workflow.
     # gh secret set PERSONAL_TOKEN --body $GH_TOKEN
     # gh secret set PYPI_API_TOKEN --body $PYPI_API_TOKEN
     # gh secret set TEST_PYPI_API_TOKEN --body $TEST_PYPI_API_TOKEN
@@ -261,7 +232,7 @@ then check your documentation at <https://{your_github_account}.github.io/{your_
   ```
   mkdocs serve -a 0.0.0.0:8000
   ```
-  
+
 then open your browser, visit your dev machine on port 8000.
 
 ???+ Info
@@ -277,7 +248,7 @@ then open your browser, visit your dev machine on port 8000.
 ## Step 11. Make an official release
 
 After done with your phased development, switch to either of (main, master) branch, following instructions at [release checklist](/pypi_release_checklist), trigger first official release and check result at [PYPI].
-  
+
 ## Step 12. Customization
 
 ppw assumed some settings for you, for example, it choose python version in pyproject.toml and tox.ini. Change accordingly to match you case.
@@ -333,7 +304,7 @@ The following section will address how to customize github workflow:
     ```
     # - name: Dingtalk Robot Notify
     #   uses: leafney/dingtalk-action@v1.0.0
-    #   env: 
+    #   env:
     #     DINGTALK_ACCESS_TOKEN: ${{ secrets.DINGTALK_ACCESS_TOKEN }}
     #     DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
     #   with:

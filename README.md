@@ -58,7 +58,7 @@ This repo is forked from [zillionare/python-project-wizard](https://github.com/z
 [Pre-commit hooks]: https://pre-commit.com/
 [mike]: https://github.com/jimporter/mike
 [autoDocStrings]: https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring
-[Tutorial]: https://zillionare.github.io/python-project-wizard/tutorial/
+[Tutorial]: https://fccoelho.github.io/python-project/tutorial/
 [audreyr/cookiecutter-pypackage]: https://github.com/audreyr/cookiecutter-pypackage
 [briggySmalls]: https://github.com/briggySmalls/cookiecutter-pypackage
 
